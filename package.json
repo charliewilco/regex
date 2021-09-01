@@ -1,9 +1,12 @@
 {
-  "name": "@charliewilco/esm",
+  "name": "@charliewilco/sytynar",
   "license": "Unlicense",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "rollup -c",
@@ -31,5 +34,9 @@
   },
   "jest": {
     "preset": "ts-jest"
+  },
+  "dependencies": {
+    "@types/tlds": "^1.207.0",
+    "tlds": "^1.221.1"
   }
 }
