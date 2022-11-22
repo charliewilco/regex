@@ -4,6 +4,9 @@ export class USPhoneNumberRegex extends RegExp {
 	}
 }
 
+export const usPhoneNumber = new RegExp(/(?:\(?\d{3})?\)?[- ]?[2-9]\d{2}[- ]?\d{4}/) 
+
+
 export class IntlPhoneNumberRegex extends RegExp {
 	constructor(flags?: string) {
 		super(/^\+[0-9]?()[0-9](\s|\S)(\d[0-9]{9})$/, flags);
