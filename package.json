@@ -1,16 +1,17 @@
 {
   "name": "@charliewilco/regex",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "A tiny collection of reusable regular expressions for common string patterns.",
   "license": "Unlicense",
-  "main": "./dist/index.cjs",
+  "type": "module",
+  "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "default": "./dist/index.js",
+      "import": "./dist/index.js"
     }
   },
   "sideEffects": false,
@@ -38,9 +39,8 @@
   "scripts": {
     "clean": "rm -rf dist src/index.js src/index.js.map src/index.cjs src/index.cjs.map",
     "build:esm": "bun build ./src/index.ts --outdir ./dist --root ./src --entry-naming [name].js --target node --format esm --sourcemap=external",
-    "build:cjs": "bun build ./src/index.ts --outdir ./dist --root ./src --entry-naming [name].cjs --target node --format cjs --sourcemap=external",
     "build:types": "tsc --project tsconfig.build.json",
-    "build": "bun run clean && bun run build:esm && bun run build:cjs && bun run build:types",
+    "build": "bun run clean && bun run build:esm && bun run build:types",
     "typecheck": "tsc --project tsconfig.json",
     "typecheck:test": "tsc --project tsconfig.test.json",
     "format": "prettier --write .",

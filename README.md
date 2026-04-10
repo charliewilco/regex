@@ -6,6 +6,8 @@ Tiny `RegExp` subclasses for a handful of common string patterns.
 
 This package is intentionally lightweight. These matchers are useful building blocks, but they are not a full validation framework and they should not be treated as standards-complete parsers.
 
+This package now ships as ESM-only.
+
 ## Install
 
 ```sh
