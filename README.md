@@ -2,7 +2,7 @@
 
 [![Unit Tests](https://github.com/charliewilco/regex/actions/workflows/node.yml/badge.svg)](https://github.com/charliewilco/regex/actions/workflows/node.yml)
 
-Tiny `RegExp` subclasses for a handful of common string patterns.
+Tiny reusable regular expression patterns for common string formats.
 
 This package is intentionally lightweight. These matchers are useful building blocks, but they are not a full validation framework and they should not be treated as standards-complete parsers.
 
@@ -20,53 +20,50 @@ pnpm add @charliewilco/regex
 
 ## Usage
 
-Each export is a small `RegExp` subclass, so you instantiate it once and use normal regular expression methods such as `.test()` and `.exec()`.
+Each pattern ships in three forms:
+
+- a reusable pattern object, such as `emailPattern`
+- a predicate helper, such as `isEmail(value)`
+- a small `RegExp` subclass, such as `EmailRegex`
 
 ```ts
-import {
-  EmailRegex,
-  EthereumAddressRegex,
-  HTMLRegex,
-  IPv4AddressRegex,
-  IntlPhoneNumberRegex,
-  SemanticVersionRegex,
-  SlugRegex,
-  USPhoneNumberRegex,
-  UUIDRegex,
-} from "@charliewilco/regex";
+import { EmailRegex, emailPattern, isEmail, isSemanticVersion } from "@charliewilco/regex";
 
 const email = new EmailRegex("i");
-const wallet = new EthereumAddressRegex();
-const html = new HTMLRegex();
-const ip = new IPv4AddressRegex();
-const usPhone = new USPhoneNumberRegex();
-const intlPhone = new IntlPhoneNumberRegex();
-const version = new SemanticVersionRegex();
-const slug = new SlugRegex();
-const uuid = new UUIDRegex();
 
 email.test("hello@example.com");
-wallet.test("0x71C7656EC7ab88b098defB751B7401B5f6d8976F");
-html.test('<img src="https://example.com/cat.png" />');
-ip.test("192.168.1.1");
-usPhone.test("717-242-6729");
-intlPhone.test("+462345678901");
-version.test("1.4.0-beta.2");
-slug.test("hello-world");
-uuid.test("123e4567-e89b-12d3-a456-426655440000");
+isEmail("hello@example.com");
+isSemanticVersion("1.4.0-beta.2");
+
+emailPattern.create("i").test("hello@example.com");
 ```
 
 ## Included Patterns
 
-- `EmailRegex`
-- `EthereumAddressRegex`
-- `HTMLRegex`
-- `IPv4AddressRegex`
-- `IntlPhoneNumberRegex`
-- `SemanticVersionRegex`
-- `SlugRegex`
-- `USPhoneNumberRegex`
-- `UUIDRegex`
+| Pattern                    | Pattern object           | Predicate           | RegExp subclass        |
+| -------------------------- | ------------------------ | ------------------- | ---------------------- |
+| Email address              | `emailPattern`           | `isEmail`           | `EmailRegex`           |
+| Ethereum address           | `ethereumAddressPattern` | `isEthereumAddress` | `EthereumAddressRegex` |
+| HTML snippet               | `htmlPattern`            | `isHTML`            | `HTMLRegex`            |
+| IPv4 address               | `ipv4AddressPattern`     | `isIPv4Address`     | `IPv4AddressRegex`     |
+| International phone number | `intlPhoneNumberPattern` | `isIntlPhoneNumber` | `IntlPhoneNumberRegex` |
+| Semantic version           | `semanticVersionPattern` | `isSemanticVersion` | `SemanticVersionRegex` |
+| Slug                       | `slugPattern`            | `isSlug`            | `SlugRegex`            |
+| US phone number            | `usPhoneNumberPattern`   | `isUSPhoneNumber`   | `USPhoneNumberRegex`   |
+| UUID                       | `uuidPattern`            | `isUUID`            | `UUIDRegex`            |
+
+## Custom Patterns
+
+Use `defineRegexPattern` when you want the same small API for a project-specific pattern.
+
+```ts
+import { defineRegexPattern } from "@charliewilco/regex";
+
+const ticketPattern = defineRegexPattern(String.raw`[A-Z]+-\d+`);
+
+ticketPattern.test("BUG-123");
+ticketPattern.create().exec("BUG-123");
+```
 
 ## Development
 
