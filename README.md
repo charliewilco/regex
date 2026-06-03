@@ -11,11 +11,11 @@ This package now ships as ESM-only.
 ## Install
 
 ```sh
-bun add @charliewilco/regex
+npm install @charliewilco/regex
 ```
 
 ```sh
-npm install @charliewilco/regex
+pnpm add @charliewilco/regex
 ```
 
 ## Usage
@@ -71,9 +71,9 @@ uuid.test("123e4567-e89b-12d3-a456-426655440000");
 ## Development
 
 ```sh
-bun install
-bun run check
-bun run build
+npm install
+npm run check
+npm run build
 ```
 
-The project now uses Bun for package management, scripts, and test execution.
+The project uses npm for package management and Node's built-in test runner for tests.

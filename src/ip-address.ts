@@ -1,4 +1,4 @@
-import { IP_ADDRESS_V4 } from "./tokens";
+import { IP_ADDRESS_V4 } from "./tokens.ts";
 
 export class IPv4AddressRegex extends RegExp {
   constructor(flags?: string) {
