@@ -41,6 +41,12 @@ describe("Regex patterns", () => {
     assert.equal(isEmail("prefix charlie@example.com"), false);
     assert.equal(isSlug("Hello World"), false);
     assert.equal(isUUID("c73bcdcc26694bf681d3e4ae73fb11fd"), false);
+    assert.equal(isEthereumAddress("prefix 0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe"), false);
+    assert.equal(isHTML("prefix <p>test</p>"), false);
+    assert.equal(isIPv4Address("prefix 192.168.1.1"), false);
+    assert.equal(isUSPhoneNumber("prefix 717-242-6729"), false);
+    assert.equal(isIntlPhoneNumber("prefix +44 20 7946 0958"), false);
+    assert.equal(isSemanticVersion("prefix 1.0.0"), false);
   });
 
   it("supports custom pattern definitions", () => {
