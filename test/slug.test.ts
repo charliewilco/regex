@@ -5,14 +5,7 @@ import { SlugRegex, slugPattern, isSlug } from "../src/slug.ts";
 describe("Slugs", () => {
   it("matches lowercase hyphenated slugs", () => {
     const re = new SlugRegex();
-    const validSlugs = [
-      "hello-world",
-      "release-2026",
-      "a",
-      "123",
-      "a-b-c-d",
-      "1-2-3-4"
-    ];
+    const validSlugs = ["hello-world", "release-2026", "a", "123", "a-b-c-d", "1-2-3-4"];
 
     for (const slug of validSlugs) {
       assert.equal(re.test(slug), true, `Regex failed on: ${slug}`);
@@ -32,7 +25,7 @@ describe("Slugs", () => {
       "hello world",
       "hello@world",
       "prefix hello-world",
-      "hello-world suffix"
+      "hello-world suffix",
     ];
 
     for (const slug of invalidSlugs) {

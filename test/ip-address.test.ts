@@ -5,13 +5,7 @@ import { IPv4AddressRegex, ipv4AddressPattern, isIPv4Address } from "../src/ip-a
 describe("IPv4 addresses", () => {
   it("matches valid IPv4 addresses", () => {
     const re = new IPv4AddressRegex();
-    const validIps = [
-      "127.0.0.1",
-      "192.168.1.1",
-      "255.255.255.255",
-      "0.0.0.0",
-      "10.0.0.1"
-    ];
+    const validIps = ["127.0.0.1", "192.168.1.1", "255.255.255.255", "0.0.0.0", "10.0.0.1"];
 
     for (const ip of validIps) {
       assert.equal(re.test(ip), true, `Regex failed on: ${ip}`);
@@ -30,7 +24,7 @@ describe("IPv4 addresses", () => {
       "prefix 127.0.0.1",
       "127.0.0.1 suffix",
       "255.255.255.256",
-      "1.2.3.4.5"
+      "1.2.3.4.5",
     ];
 
     for (const ip of invalidIps) {

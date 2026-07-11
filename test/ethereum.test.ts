@@ -1,6 +1,10 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { EthereumAddressRegex, ethereumAddressPattern, isEthereumAddress } from "../src/ethereum.ts";
+import {
+  EthereumAddressRegex,
+  ethereumAddressPattern,
+  isEthereumAddress,
+} from "../src/ethereum.ts";
 
 describe("Eth addresses", () => {
   it("recognizes Ethereum addresses", () => {
@@ -8,7 +12,7 @@ describe("Eth addresses", () => {
     const validAddresses = [
       "0x71C7656EC7ab88b098defB751B7401B5f6d8976F",
       "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
-      "0x0000000000000000000000000000000000000000"
+      "0x0000000000000000000000000000000000000000",
     ];
 
     for (const addr of validAddresses) {
@@ -27,7 +31,7 @@ describe("Eth addresses", () => {
       "0x71C7656EC7ab88b098defB751B7401B5f6d8976F0", // too long
       "prefix-0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
       "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe suffix",
-      "0xZZZ7656EC7ab88b098defB751B7401B5f6d8976F" // invalid characters
+      "0xZZZ7656EC7ab88b098defB751B7401B5f6d8976F", // invalid characters
     ];
 
     for (const addr of invalidAddresses) {

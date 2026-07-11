@@ -10,7 +10,7 @@ describe("Universal Unique ID", () => {
       "c73bcdcc-2669-4bf6-81d3-e4ae73fb11fd",
       "C73BCDCC-2669-4Bf6-81d3-E4AE73FB11FD",
       "00000000-0000-1000-8000-000000000000",
-      "ffffffff-ffff-8fff-bfff-ffffffffffff"
+      "ffffffff-ffff-8fff-bfff-ffffffffffff",
     ];
 
     for (const uuid of validUUIDs) {
@@ -32,7 +32,7 @@ describe("Universal Unique ID", () => {
       "c73bcdcc-2669-4bf6-81d3-e4ae73fb11fd-", // trailing dash
       "-c73bcdcc-2669-4bf6-81d3-e4ae73fb11fd", // leading dash
       "prefix c73bcdcc-2669-4bf6-81d3-e4ae73fb11fd",
-      "c73bcdcc-2669-4bf6-81d3-e4ae73fb11fd suffix"
+      "c73bcdcc-2669-4bf6-81d3-e4ae73fb11fd suffix",
     ];
 
     for (const uuid of invalidUUIDs) {

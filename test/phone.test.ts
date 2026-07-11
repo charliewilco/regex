@@ -6,7 +6,7 @@ import {
   usPhoneNumberPattern,
   isUSPhoneNumber,
   intlPhoneNumberPattern,
-  isIntlPhoneNumber
+  isIntlPhoneNumber,
 } from "../src/phone-numbers.ts";
 
 describe("Phone numbers", () => {
@@ -17,7 +17,7 @@ describe("Phone numbers", () => {
       "(717) 242-6729",
       "+1 717 242 6729",
       "7172426729",
-      "1-717-242-6729"
+      "1-717-242-6729",
     ];
 
     for (const phone of validPhones) {
@@ -34,10 +34,10 @@ describe("Phone numbers", () => {
       "117-242-6729", // invalid area code
       "017-242-6729",
       "717-142-6729", // invalid prefix
-      "717-242-672",  // too short
+      "717-242-672", // too short
       "prefix 717-242-6729",
       "717-242-6729 suffix",
-      "+2 717 242 6729" // wrong country code
+      "+2 717 242 6729", // wrong country code
     ];
 
     for (const phone of invalidPhones) {
@@ -54,7 +54,7 @@ describe("Phone numbers", () => {
       "+44 20 7946 0958",
       "+81-3-1234-5678",
       "+1-717-242-6729",
-      "+91 98765 43210"
+      "+91 98765 43210",
     ];
 
     for (const phone of validPhones) {
@@ -73,7 +73,7 @@ describe("Phone numbers", () => {
       "+1 (717) 242-6729", // no parens allowed in intl format
       "prefix +44 20 7946 0958",
       "+44 20 7946 0958 suffix",
-      "+12345678901234567" // too long
+      "+12345678901234567", // too long
     ];
 
     for (const phone of invalidPhones) {

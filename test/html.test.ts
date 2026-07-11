@@ -9,7 +9,7 @@ describe("HTMLRegex", () => {
       "<p>Hello world</p>",
       '<a href="https://example.com">Visit</a>',
       '<img src="https://example.com/cat.png" alt="Cat" />',
-      "<span class=\"bold\">Text</span>"
+      '<span class="bold">Text</span>',
     ];
 
     for (const html of validHtml) {
@@ -31,7 +31,7 @@ describe("HTMLRegex", () => {
       "<p>Missing closing",
       "Missing opening</p>",
       "<div></div>",
-      "<br />"
+      "<br />",
     ];
 
     for (const html of invalidHtml) {

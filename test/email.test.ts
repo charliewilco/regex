@@ -11,7 +11,7 @@ describe("Email addresses", () => {
       "letters-and_numbers%ok@example-domain.co.uk",
       "a.b.c@example.com",
       "123@456.com",
-      "user_name@example.org"
+      "user_name@example.org",
     ];
 
     for (const email of validEmails) {
@@ -33,7 +33,7 @@ describe("Email addresses", () => {
       "prefix charlie@example.com",
       "charlie@example.com suffix",
       "@",
-      "user@.com"
+      "user@.com",
     ];
 
     for (const email of invalidEmails) {
